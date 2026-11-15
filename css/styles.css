@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Colors */
+    --color-bg: #0e1117;                       /* near-black, slight navy tint */
+    --color-text: #f2f2f0;                     /* soft white, 16.9:1 */
+    --color-muted: #9aa0ab;                    /* labels & secondary text, 7.2:1 */
+    --color-accent: #eeaf9d;                   /* your pink, kept as the ONE accent, 10:1 */
+
+    /* Glass */
+    --glass-bg: rgba(255, 255, 255, 0.08);     /* 8% white = see-through */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.15);
+    --glass-blur: blur(16px);
+
+    /* Font */
+    --font-main: "Montserrat", Arial, sans-serif;
+
+    /* Layout & spacing (keep yours) */
+    --max-width: 60rem;
+    --space-sm: 0.5rem;
+    --space: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+    /* Shape */
+    --radius: 1rem;
+    --radius-pill: 999px;                      /* huge radius = fully round ends */
+}
+
+/* ---------- Base (whole page) ---------- */
+body {
+    font-family: var(--font-main);
+    font-weight: 400;
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.5;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+}
+
+a {
+    color: var(--color-text);
+    text-underline-offset: 0.2em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Descendant combinator: images inside project cards */
+article img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: 1.0rem; /* 0.875rem */
+    letter-spacing: 0.3em; /* 0.2 */
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* ---------- Layout ---------- */
+header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space);
+    background: rgba(14, 17, 23, 0.7);
+    backdrop-filter: var(--glass-blur);
+
+    padding: var(--space) var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header > p { 
+    margin: 0; 
+    font-size: 1rem;
+}
+header > p a { 
+    color: var(--color-text);
+    text-decoration: none; /* remove underline */
+} 
+
+/* Child combinator: the link list directly inside the nav */
+nav > ul { 
+    /* row layout */
+    display: flex;
+    gap: var(--space-lg);
+    list-style: none;
+    margin: 0;
+
+    /* glass pill */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-pill);
+    padding: 0.6em 1.4em;
+}
+
+/* Descendant combinator: links inside the main nav */
+nav a { 
+    text-decoration: none;
+}
+
+main, footer { 
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* Child combinator: each top-level section of the page content */
+main > section {
+    padding: var(--space-xl) 0;
+}
+
+/* Attribute selector: the homepage intro section (heading + bio) */
+section[aria-labelledby="intro-heading"] { 
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+footer {
+    border-top: var(--glass-border);
+    padding: var((--space-lg));
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    text-align: center;
+}
+
+/* ---------- Components (reusable) ---------- */
+hr {
+    border: none;
+    border-top: var(--glass-border);
+    margin: 0;
+}
+
+/* Descendant combinator: project titles inside cards */
+article h3 {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: var(--space);
+}      
+article h2 {
+    color: var(--color-text);
+    letter-spacing: 0.15em;
+}
+article h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+article p {
+    color: var(--color-muted);
+    max-width: 40rem;
+}
+
+tech-tag { 
+    display: inline-block;
+    padding: 0.2em 0.8em;
+    border: var(--glass-border);
+    border-radius: var(--radius-pill);
+
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+}
+
+button { 
+    font: inherit;
+    padding: 0.75em 2em;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-pill);
+
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+
+    cursor: pointer;
+}
+
+form {
+    max-width: 40rem;
+}
+fieldset {
+    border: var(--glass-border);
+    padding: var(--space-lg);
+    margin: 0 0 var(--space-lg);
+}
+legend {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    padding: 0 0.5em;
+}
+/* Descendant combinator: row inside the form */
+form div { 
+    margin-bottom: var(--space); 
+}
+/* Attribute selectors: the text-entry fields */
+input[type="text"], input[type="email"], textarea { 
+    box-sizing: border-box;
+    width: 100%;
+
+    font: inherit;
+    color: var(--color-text);
+    display: block;
+    margin-top: var(--space-sm);
+    padding: 0.75em;
+    background: var(--glass-bg);
+
+
+    border: var(--glass-border);
+    border-radius: var(--radius);
+}
+/* Descendant: shapes inside the contact heading icon */
+h2 svg rect, h2 svg polyline { 
+    stroke: var(--color-muted); 
+}
+
+/* ---------- States ---------- */
+a:hover {
+    color: var(--color-accent);
+}
+button:hover {
+   background: var(--color-text);
+}
+
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--color-accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    section[aria-labelledby="intro-heading"] { 
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    header { 
+        flex-direction: column;
+        gap: var(--space-sm);
+
+        padding: var(--space-sm) var(--space);
+    }
+    nav > ul { 
+        gap: var(--space);
+        font-size: 0.8rem;
+        
+        flex-wrap: wrap;
+        justify-content: content;
+    }
+    main, footer { 
+        padding: 0 var(--space);
+    }
+    main > section {
+        padding: var(--space-lg) 0;
+    }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Xinyi about roles, research">
+    <title>Xinyi - Contact</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Site name & Nav Bar -->
+    <header>
+        <p><a href="index.html">HOME</a></p>
+
+        <!-- Nav Bar -->
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Contact</h1>
+        <section aria-labelledby="links-heading">
+            <h2 id="links-heading">Ways to reach me</h2>
+            <!-- Buttons haven't link to real contact-->
+            <ul>
+                <li><a href="https://github.com/xinyixih">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/placeholder">LinkedIn</a></li>
+                <li><a href="mailto:xih049@ucsd.edu">Email</a></li>
+                <li><a href="tel:+18582898402">Phone</a></li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section aria-labelledby="message-heading">
+            <h2 id="message-heading">
+                Send me a message
+                    <svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="envelope-title">
+                    <title id="envelope-title">Envelope</title>
+                    <rect x="2" y="5" width="20" height="14" fill="none" stroke="black" stroke-width="2"/>
+                    <polyline points="2,5 12,13 22,5" fill="none" stroke="black" stroke-width="2"/>
+                </svg>
+            </h2>
+
+            <!-- Contact form -->
+            <form method="post">
+                <fieldset>
+                    <legend>Your details</legend>
+
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>What is this about?</legend>
+
+                    <div>
+                        <input type="radio" id="topic-role" name="topic" value="role" checked>
+                        <label for="topic-role">A role or internship</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="topic-research" name="topic" value="research">
+                        <label for="topic-research">Research opportunity</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="topic-chat" name="topic" value="chat">
+                        <label for="topic-chat">Just to say hi!</label>
+                    </div>
+                </fieldset>
+
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit">Send message</button>
+            </form>
+
+            <!-- After submitting -->
+            <dialog id="sent-dialog" aria-labelledby="sent-heading">
+                <h3 id="sent-heading">Message sent</h3>
+                <p>Thanks for reaching out! I'll reply within a few days.</p>
+                <form method="dialog">
+                    <button type="submit">Close</button>
+                </form>
+            </dialog>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Xinyi. <a href="experiments.html">HTML experiments</a></p>
+    </footer>
+</body>
+</html>
